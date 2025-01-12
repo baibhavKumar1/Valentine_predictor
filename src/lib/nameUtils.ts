@@ -14,7 +14,7 @@ export async function detectEthnicity(name: string): Promise<Ethnicity> {
   return 'Unknown'
 }
 
-export function generateNameMeaning(name: string, gender: string, ethnicity: Ethnicity): string {
+export function generateNameMeaning(name: string, gender: string): string {
   const adjectives = {
     male: ['confident', 'charismatic', 'witty', 'bold', 'daring'],
     female: ['charming', 'graceful', 'radiant', 'enchanting', 'captivating']
@@ -51,7 +51,7 @@ export function generateValentinePrediction(ethnicity: Ethnicity, gender: string
     Unknown: { male: ['Alex', 'Sam', 'Jordan'], female: ['Taylor', 'Avery', 'Riley'] }
   }
   
-  const name = valentineNames[ethnicity][gender][Math.floor(Math.random() * 3)]
+  const name = valentineNames[ethnicity as keyof typeof valentineNames][gender as 'male' | 'female'][Math.floor(Math.random() * 3)]
   const traits = ['adventure', 'laughter', 'passion', 'harmony', 'excitement']
   const randomTrait = traits[Math.floor(Math.random() * traits.length)]
   

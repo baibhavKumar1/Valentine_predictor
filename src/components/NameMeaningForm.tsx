@@ -30,7 +30,7 @@ export default function NameMeaningForm() {
 
     try {
       const data = await generateMeaning(name, gender, country)
-      if (data.meaning && data.valentinePrediction) {
+      if (data && data.meaning && data.valentinePrediction) {
         setResult(data)
       } else {
         throw new Error("Received incomplete data from the server.")
@@ -47,7 +47,7 @@ export default function NameMeaningForm() {
     <Card className="w-full max-w-md">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-center">Name Meaning & Valentine Predictor</CardTitle>
-        <CardDescription className="text-center">Discover your name's essence and Valentine's fate!</CardDescription>
+        <CardDescription className="text-center">Discover your name&apos;s essence and Valentine&apos;s fate!</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
